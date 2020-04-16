@@ -24,7 +24,7 @@ function tryToMove(b, axis, direction) {
 	!(b.axis == axis && b.direction != direction)) {
 		b.axis = axis;
 		b.direction = direction;
-		movment(b);
+		movment(b, 260);
 		return (1);
 	}
 	return (0);
@@ -65,21 +65,21 @@ function whereToGo(b) {
 	}	
 }
 
-function cheetMovement(target, axis, direction)
+function cheetMovment(target, axis, direction)
 {
 	let p = target.pos[axis];
 	target.pos[axis] += direction;
 	let i = 0;
 
-	let requestMovementID = window.requestAnimationFrame(function mv() {
+	let requestMovmentID = window.requestAnimationFrame(function mv() {
 		i += 1;
 		let shift = ((p + i * direction / 10) * scale ) + "px";
 		if (i <= 10) {
 			if (axis) { target.change.style.left = shift; }
 			else { target.change.style.top = shift; }
-			requestMovementID = window.requestAnimationFrame(mv);
+			requestMovmentID = window.requestAnimationFrame(mv);
 		}
-		else {	window.cancelAnimationFrame(requestMovementID);	}
+		else {	window.cancelAnimationFrame(requestMovmentID);	}
 	});
 }
 
@@ -96,17 +96,21 @@ function isPacmanCaught(b) {
 			b.direction = 1;
 			b.change.style.top = b.pos[0] * scale + "px";
 			b.change.style.left = b.pos[1] * scale + "px";
-			setTimeout(() => {cheetMovement(b, 1, -1);}, 250);
-			setTimeout(() => {cheetMovement(b, 1, 1);}, 500);
-			setTimeout(() => {cheetMovement(b, 1, 1);}, 750);
-			setTimeout(() => {cheetMovement(b, 1, -1);}, 1000);
-			setTimeout(() => {cheetMovement(b, 0, -1);}, 1250);
-			setTimeout(() => {	b.direction = -1;	}, 1500);
+			setTimeout(() => {cheetMovment(b, 1, -1);}, 260);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 520);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 780);
+			setTimeout(() => {cheetMovment(b, 1, -1);}, 1040);
+			setTimeout(() => {cheetMovment(b, 1, -1);}, 1300);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 1560);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 1820);
+			setTimeout(() => {cheetMovment(b, 1, -1);}, 2080);
+			setTimeout(() => {cheetMovment(b, 0, -1);}, 2340);
+			setTimeout(() => {	b.direction = -1;	}, 2600);
 		}
 		else { 
 			pacmanCaught();
 			if (!(pacman.pos[0] == b.pos[0] && pacman.pos[1] == b.pos[1])) 
-				cheetMovement(b, b.axis, b.direction);
+				cheetMovment(b, b.axis, b.direction);
 			stub.text.innerText = "ВЫ ПРОИГРАЛИ";
 			stub.change.style.opacity = 1;
 			game.stop = 1; 
@@ -146,8 +150,8 @@ function startHunter() {
 						tryToMove(b, 1 - b.axis, -1);
 				}
 			}
-			requestID = setTimeout(hunt, 250); 
-		}, 250);
+			requestID = setTimeout(hunt, 260); 
+		}, 260);
 	};
 	setTimeout(() => {badMoves(bad[1]);}, 1500);
 	setTimeout(() => {badMoves(bad[0]);}, 3500);

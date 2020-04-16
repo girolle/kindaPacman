@@ -58,7 +58,7 @@ function move(target, axis, direction) {
 	let requestMoveID = setTimeout(function m() {
 		if (emptyNeib (target, axis, direction) && +
 			(target.axis == axis && target.direction == direction)) {
-			movment(target);
+			movment(target, 250);
 			setTimeout(() => {	pickCoin(target); }, 200);
 			requestMoveID = setTimeout(m, 250)
 		}
@@ -67,7 +67,7 @@ function move(target, axis, direction) {
 
 }
 
-function movment(target) {
+function movment(target, dtime) {
 	if (target.inProgress == 1) {
 		return (0);
 	}
@@ -81,23 +81,23 @@ function movment(target) {
 		let i = 0;
 		let time = new Date().getTime();
 		let now;
-		let requestMovementID = window.requestAnimationFrame(function mv() {
+		let requestMovmentID = window.requestAnimationFrame(function mv() {
 			i += 1;
 			let shift = ((p + i * direction / 10) * scale ) + "px";
 			if (i <= 10) {
 				if (axis) { target.change.style.left = shift; }
 				else { target.change.style.top = shift; }
-				requestMovementID = window.requestAnimationFrame(mv);
+				requestMovmentID = window.requestAnimationFrame(mv);
 				now = new Date().getTime();
 			}
-			else {	window.cancelAnimationFrame(requestMovementID);	}
+			else {	window.cancelAnimationFrame(requestMovmentID);	}
 			target.dt = now - time;
 		});
 
 		setTimeout(() => {
 			target.inProgress = 0;
 			return (1);
-		}, 250);
+		}, dtime);
 	}
 }
 
