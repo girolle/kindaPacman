@@ -137,13 +137,13 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 
 
 	arrows.change = document.getElementById("arrows");
-	arrows.change.style.height = arrows.size + "px";
-	arrows.change.style.width = arrows.size  + "px";
+	arrows.change.style.height = arrows.size * 0.95 + "px";
+	arrows.change.style.width = arrows.size * 0.95 + "px";
 
 	arrows.up = document.createElement('button');
 	arrows.up.className = "arrow";
-	arrows.up.style.width = "25%";
-	arrows.up.style.height = "25%";
+	arrows.up.style.width = "40%";
+	arrows.up.style.height = "50%";
 	arrows.up.style.top = "25%";
 	arrows.up.style.left = "50%";
 	arrows.change.append(arrows.up);
@@ -151,16 +151,16 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 
 	arrows.left = document.createElement('button');
 	arrows.left.className = "arrow";
-	arrows.left.style.width = "25%";
-	arrows.left.style.height = "25%";
+	arrows.left.style.width = "30%";
+	arrows.left.style.height = "100%";
 	arrows.left.style.top = "50%";
-	arrows.left.style.left = "25%";
+	arrows.left.style.left = "15%";
 	arrows.change.append(arrows.left);
 
 	arrows.down = document.createElement('button');
 	arrows.down.className = "arrow";
-	arrows.down.style.width = "25%";
-	arrows.down.style.height = "25%";
+	arrows.down.style.width = "40%";
+	arrows.down.style.height = "50%";
 	arrows.down.style.top = "75%";
 	arrows.down.style.left = "50%";
 	arrows.change.append(arrows.down);
@@ -168,43 +168,45 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 
 	arrows.right = document.createElement('button');
 	arrows.right.className = "arrow";
-	arrows.right.style.width = "25%";
-	arrows.right.style.height = "25%";
+	arrows.right.style.width = "30%";
+	arrows.right.style.height = "100%";
 	arrows.right.style.top = "50%";
-	arrows.right.style.left = "75%";
+	arrows.right.style.left = "85%";
 	arrows.change.append(arrows.right);
+
+	arrows.up.onclick = function() {
+		if (game.entered && !game.stop){
+			bads_start();
+			move(pacman, 0, -1);
+	
+		}
+	}
+	
+	arrows.left.onclick = function() {
+		if (game.entered && !game.stop){
+			bads_start();
+			move(pacman, 1, -1);
+		}
+	}
+	
+	arrows.down.onclick = function() {
+		if (game.entered && !game.stop) {
+			move(pacman, 0, 1);
+			bads_start();
+		}
+	}
+	
+	arrows.right.onclick = function() {
+		if (game.entered && !game.stop) {
+			bads_start();
+			move(pacman, 1, 1); 
+		}
+	}
 } 
 
-arrows.up.onclick = function() {
-	if (game.entered && !game.stop){
-		bads_start();
-		move(pacman, 0, -1);
-
-	}
-}
-
-arrows.left.onclick = function() {
-	if (game.entered && !game.stop){
-		bads_start();
-		move(pacman, 1, -1);
-	}
-}
-
-arrows.down.onclick = function() {
-	if (game.entered && !game.stop) {
-		move(pacman, 0, 1);
-		bads_start();
-	}
-}
-
-arrows.right.onclick = function() {
-	if (game.entered && !game.stop) {
-		bads_start();
-		move(pacman, 1, 1); 
-	}
-}
-
 for (let i = 0; i <= mapSize[0]; i += 1) {
+	console.log("AAAAA");
+
 	for (let j = 0; j <= mapSize[1]; j += 1) {
 		if (!(map[i][j])) {
 			let img = document.createElement('img');
