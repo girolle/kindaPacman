@@ -184,7 +184,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.box.append(arrows.right);
 
 	arrows.up.onclick = function() {
-		vibrate(10);
+		vibrate(50);
 		if (game.entered && !game.stop){
 			bads_start();
 			move(pacman, 0, -1);
@@ -193,7 +193,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	}
 	
 	arrows.left.onclick = function() {
-		vibrate(10);
+		vibrate(50);
 		if (game.entered && !game.stop){
 			bads_start();
 			move(pacman, 1, -1);
@@ -201,7 +201,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	}
 	
 	arrows.down.onclick = function() {
-		vibrate(10);
+		vibrate(50);
 		if (game.entered && !game.stop) {
 			move(pacman, 0, 1);
 			bads_start();
@@ -209,7 +209,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	}
 	
 	arrows.right.onclick = function() {
-		vibrate(10);
+		vibrate(50);
 		if (game.entered && !game.stop) {
 			bads_start();
 			move(pacman, 1, 1); 
