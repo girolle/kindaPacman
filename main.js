@@ -132,13 +132,6 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.box.style.height = (windowHeight - boxSize - 2 * scale) + "px";
 	arrows.box.style.width = windowWidth + "px";
 	arrows.box.style.top = boxSize + 2 * scale + "px";
-	arrows.size = Math.min((windowHeight - boxSize - 2 * scale), windowWidth);
-
-
-
-	arrows.change = document.getElementById("arrows");
-	arrows.change.style.height = arrows.size * 0.95 + "px";
-	arrows.change.style.width = arrows.size * 0.95 + "px";
 
 	arrows.up = document.createElement('button');
 	arrows.up.className = "arrow";
@@ -146,7 +139,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.up.style.height = "50%";
 	arrows.up.style.top = "25%";
 	arrows.up.style.left = "50%";
-	arrows.change.append(arrows.up);
+	arrows.box.append(arrows.up);
 
 
 	arrows.left = document.createElement('button');
@@ -155,7 +148,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.left.style.height = "100%";
 	arrows.left.style.top = "50%";
 	arrows.left.style.left = "15%";
-	arrows.change.append(arrows.left);
+	arrows.box.append(arrows.left);
 
 	arrows.down = document.createElement('button');
 	arrows.down.className = "arrow";
@@ -163,7 +156,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.down.style.height = "50%";
 	arrows.down.style.top = "75%";
 	arrows.down.style.left = "50%";
-	arrows.change.append(arrows.down);
+	arrows.box.append(arrows.down);
 
 
 	arrows.right = document.createElement('button');
@@ -172,7 +165,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.right.style.height = "100%";
 	arrows.right.style.top = "50%";
 	arrows.right.style.left = "85%";
-	arrows.change.append(arrows.right);
+	arrows.box.append(arrows.right);
 
 	arrows.up.onclick = function() {
 		if (game.entered && !game.stop){
