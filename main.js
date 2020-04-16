@@ -139,7 +139,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.up.style.height = "50%";
 	arrows.up.style.top = "25%";
 	arrows.up.style.left = "50%";
-	arrows.up.style.backgroundImage = "url(images/0000.png)";
+	arrows.up.style.backgroundImage = "url(images/arrow-up.png)";
 	arrows.up.style.backgroundSize = "100%";
 	arrows.up.style.backgroundRepeat = "no-repeat"
 	arrows.up.style.backgroundPosition = "50%"
@@ -152,7 +152,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.left.style.height = "100%";
 	arrows.left.style.top = "50%";
 	arrows.left.style.left = "15%";
-	arrows.left.style.backgroundImage = "url(images/0000.png)";
+	arrows.left.style.backgroundImage = "url(images/arrow-left.png)";
 	arrows.left.style.backgroundSize = "100%";
 	arrows.left.style.backgroundRepeat = "no-repeat"
 	arrows.left.style.backgroundPosition = "50%"
@@ -164,7 +164,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.down.style.height = "50%";
 	arrows.down.style.top = "75%";
 	arrows.down.style.left = "50%";
-	arrows.down.style.backgroundImage = "url(images/0000.png)";
+	arrows.down.style.backgroundImage = "url(images/arrow-down.png)";
 	arrows.down.style.backgroundSize = "100%";
 	arrows.down.style.backgroundRepeat = "no-repeat"
 	arrows.down.style.backgroundPosition = "50%"
@@ -177,41 +177,41 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.right.style.height = "100%";
 	arrows.right.style.top = "50%";
 	arrows.right.style.left = "85%";
-	arrows.right.style.backgroundImage = "url(images/0000.png)";
+	arrows.right.style.backgroundImage = "url(images/arrow-right.png)";
 	arrows.right.style.backgroundSize = "100%";
 	arrows.right.style.backgroundRepeat = "no-repeat"
 	arrows.right.style.backgroundPosition = "50%"
 	arrows.box.append(arrows.right);
 
 	arrows.up.onclick = function() {
+		vibrate(10);
 		if (game.entered && !game.stop){
 			bads_start();
-			vibrate(100);
 			move(pacman, 0, -1);
 	
 		}
 	}
 	
 	arrows.left.onclick = function() {
+		vibrate(10);
 		if (game.entered && !game.stop){
 			bads_start();
-			vibrate(100);
 			move(pacman, 1, -1);
 		}
 	}
 	
 	arrows.down.onclick = function() {
+		vibrate(10);
 		if (game.entered && !game.stop) {
 			move(pacman, 0, 1);
-			vibrate(100);
 			bads_start();
 		}
 	}
 	
 	arrows.right.onclick = function() {
+		vibrate(10);
 		if (game.entered && !game.stop) {
 			bads_start();
-			vibrate(100);
 			move(pacman, 1, 1); 
 		}
 	}
