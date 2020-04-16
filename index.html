@@ -4,24 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>The GAME.</title>
+  <title>Не попадись</title>
+  <link rel="shortcut icon" href="images/icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="box">
-    <div class="header">
-      <p id="score"></p>
-    </div>
-    <div class="game">
+  <img id="logo" src="images/VTB_logo.png">
+  <div id="box">
+  <div id = "game">
+      <div id="score-box"><p id="score"></p></div>
 	    <img id="pacman">
 	    <img id="b0" class="bad">
 	    <img id="b1" class="bad">
       <img id="b2" class="bad">
-      <div id="ann"><p id="ann-text"></p></div>
-
-    </div>
+      <div id="stub">
+        <p id="stub-text"></p>
+        <button id="button"> Начать </button>
+      </div> 
   </div>
-
+  </div>
+  <div id="arrows-box"> <div id="arrows"></div>  </div>
+<script src="scale_init.js"></script>
 <script src="packman_move.js"></script>
 <script src="bads_funcs.js"></script>
 <script src="main.js"></script>

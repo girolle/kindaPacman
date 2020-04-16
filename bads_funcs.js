@@ -72,9 +72,9 @@ function cheetMovement(target, axis, direction)
 	let i = 0;
 
 	let requestMovementID = window.requestAnimationFrame(function mv() {
-		i += 5;
-		let shift = (p * scale + i * direction) + "px";
-		if (i <= 50) {
+		i += 1;
+		let shift = ((p + i * direction / 10) * scale ) + "px";
+		if (i <= 10) {
 			if (axis) { target.change.style.left = shift; }
 			else { target.change.style.top = shift; }
 			requestMovementID = window.requestAnimationFrame(mv);
@@ -89,7 +89,9 @@ function isPacmanCaught(b) {
 	(Math.abs(pacman.pos[1] - b.pos[1]) < 2)) && +
 	(pacman.axis == b.axis && pacman.direction != b.direction)) {
 		if (game.reverse) {
-			b.pos = [6, 7];
+			b.pos = [9, 8];
+			game.score.bonus += 20;
+			game.score.change.textContent = "Счёт: " + (game.score.number + game.score.bonus);
 			b.axis = 0;
 			b.direction = 1;
 			b.change.style.top = b.pos[0] * scale + "px";
@@ -105,8 +107,8 @@ function isPacmanCaught(b) {
 			pacmanCaught();
 			if (!(pacman.pos[0] == b.pos[0] && pacman.pos[1] == b.pos[1])) 
 				cheetMovement(b, b.axis, b.direction);
-			ann.text.innerText = "YOU LOSE";
-			ann.change.style.opacity = 1;
+			stub.text.innerText = "ВЫ ПРОИГРАЛИ";
+			stub.change.style.opacity = 1;
 			game.stop = 1; 
 		}
 		return (1);
@@ -117,8 +119,8 @@ function isPacmanCaught(b) {
 function isPacmanWin() {
 	if (game.score.number == 124) { 
 		game.stop = 1;
-		ann.text.innerText = "YOU WON";
-		ann.change.style.opacity = 1;
+		stub.text.innerText = "ВЫ ВЫИГРАЛИ";
+		stub.change.style.opacity = 1;
 		return (1); 
 	}
 	return(0);

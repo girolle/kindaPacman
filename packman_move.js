@@ -8,7 +8,7 @@ function pickCoin(target) {
 	if (map[target.pos[0]][target.pos[1]] == 2) {
 		map[target.pos[0]][target.pos[1]] = 1;
 		game.score.number += 1;
-		game.score.change.textContent = "Score: " + game.score.number;
+		game.score.change.textContent = "Счёт: " + (game.score.number + game.score.bonus);
 		let coin = document.getElementById(curr_id);
 		coin.remove();
 	}
@@ -19,8 +19,8 @@ function pickCoin(target) {
 		coin.remove();
 		for (let i = 0; i < 3; i += 1) {
 			clearTimeout(requestPowerupID1[i]);
-			bad[i].change.src = "bad_scared.png";
-			requestPowerupID1[i] = setTimeout (() => { bad[i].change.src = "bad.png";}, 5000);
+			bad[i].change.src = "images/bad_scared.png";
+			requestPowerupID1[i] = setTimeout (() => { bad[i].change.src = "images/bad.png";}, 5000);
 		}
 		clearTimeout(requestPowerupID2);
 		requestPowerupID2 = setTimeout (() => { game.reverse = 0;}, 5000);
@@ -59,7 +59,7 @@ function move(target, axis, direction) {
 		if (emptyNeib (target, axis, direction) && +
 			(target.axis == axis && target.direction == direction)) {
 			movment(target);
-			setTimeout(() => {	pickCoin(target); }, 250);
+			setTimeout(() => {	pickCoin(target); }, 200);
 			requestMoveID = setTimeout(m, 250)
 		}
 		else { clearTimeout(requestMoveID); }
@@ -82,9 +82,9 @@ function movment(target) {
 		let time = new Date().getTime();
 		let now;
 		let requestMovementID = window.requestAnimationFrame(function mv() {
-			i += 5;
-			let shift = (p * scale + i * direction) + "px";
-			if (i <= 50) {
+			i += 1;
+			let shift = ((p + i * direction / 10) * scale ) + "px";
+			if (i <= 10) {
 				if (axis) { target.change.style.left = shift; }
 				else { target.change.style.top = shift; }
 				requestMovementID = window.requestAnimationFrame(mv);
