@@ -186,6 +186,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.up.onclick = function() {
 		if (game.entered && !game.stop){
 			bads_start();
+			vibrate(100);
 			move(pacman, 0, -1);
 	
 		}
@@ -194,6 +195,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.left.onclick = function() {
 		if (game.entered && !game.stop){
 			bads_start();
+			vibrate(100);
 			move(pacman, 1, -1);
 		}
 	}
@@ -201,6 +203,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.down.onclick = function() {
 		if (game.entered && !game.stop) {
 			move(pacman, 0, 1);
+			vibrate(100);
 			bads_start();
 		}
 	}
@@ -208,13 +211,13 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	arrows.right.onclick = function() {
 		if (game.entered && !game.stop) {
 			bads_start();
+			vibrate(100);
 			move(pacman, 1, 1); 
 		}
 	}
 } 
 
 for (let i = 0; i <= mapSize[0]; i += 1) {
-	console.log("AAAAA");
 
 	for (let j = 0; j <= mapSize[1]; j += 1) {
 		if (!(map[i][j])) {
@@ -252,6 +255,12 @@ for (let i = 0; i <= mapSize[0]; i += 1) {
 		}
 	}
 }
+
+function vibrate(val){
+	if("vibrate" in navigator)  return navigator.vibrate(val);
+	if("oVibrate" in navigator)  return navigator.oVibrate(val);
+	if("mozVibrate" in navigator)  return navigator.mozVibrate(val);
+	if("webkitVibrate" in navigator)  return navigator.webkitVibrate(val);
 
 (function () {
 	var lastTime = 0;
