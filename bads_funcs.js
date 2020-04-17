@@ -109,8 +109,6 @@ function isPacmanCaught(b) {
 		}
 		else { 
 			pacmanCaught();
-			if (!(pacman.pos[0] == b.pos[0] && pacman.pos[1] == b.pos[1])) 
-				cheetMovment(b, b.axis, b.direction);
 			stub.text.innerText = "ВЫ ПРОИГРАЛИ";
 			stub.change.style.opacity = 1;
 			game.stop = 1; 

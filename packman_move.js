@@ -44,33 +44,43 @@ function emptyNeib(target, axis, direction) {
 	return (0);
 }
 
-function move(target, axis, direction) {
+function move(axis, direction) {
 
-	if (target.axis == axis && target.direction == direction) 
-	{ return; }
+	if (pacman.axis == axis && pacman.direction == direction) 
+	{ return (1);  }
 
-	if (target.axis != axis) {
-		if (!(emptyNeib(target, axis, direction))) 
-		{ return; }
+	if (pacman.axis != axis) {
+		if (!(emptyNeib(pacman, axis, direction))) 
+		{ return (0); }
 	}
-	target.axis = axis;
-	target.direction = direction;
+	pacman.axis = axis;
+	pacman.direction = direction;
 	let requestMoveID = setTimeout(function m() {
-		if (emptyNeib (target, axis, direction) && +
-			(target.axis == axis && target.direction == direction)) {
-			movment(target, 250);
-			setTimeout(() => {	pickCoin(target); }, 200);
+		if (game.stop) {clearTimeout(requestMoveID);}
+		if (emptyNeib (pacman, pacman.remember[0], pacman.remember[1])) {
+			move(pacman.remember[0], pacman.remember[1]);
+			pacman.remember = [2, 2];
+			clearTimeout(requestMoveID);
+		}
+		else if (emptyNeib (pacman, axis, direction) && +
+			(pacman.axis == axis && pacman.direction == direction)) {
+			movment(pacman, 80);
+			setTimeout(() => {	pickCoin(pacman); }, 80);
 			requestMoveID = setTimeout(m, 250)
 		}
 		else { clearTimeout(requestMoveID); }
-		}, (250 - target.dt));
-
+		}, (0));
+	return (1);
 }
 
 function movment(target, dtime) {
-	if (target.inProgress == 1) {
+	if (target.inProgress) {
+		pacman.remember = [pacman.axis, pacman.direction];
 		return (0);
 	}
+	setTimeout(() => {
+		target.inProgress = 0;
+	}, dtime);
 
 	target.inProgress = 1;
 	let axis = target.axis;
@@ -82,6 +92,7 @@ function movment(target, dtime) {
 		let time = new Date().getTime();
 		let now;
 		let requestMovmentID = window.requestAnimationFrame(function mv() {
+			if (game.stop) {window.cancelAnimationFrame(requestMovmentID);}
 			i += 1;
 			let shift = ((p + i * direction / 10) * scale ) + "px";
 			if (i <= 10) {
@@ -93,11 +104,6 @@ function movment(target, dtime) {
 			else {	window.cancelAnimationFrame(requestMovmentID);	}
 			target.dt = now - time;
 		});
-
-		setTimeout(() => {
-			target.inProgress = 0;
-			return (1);
-		}, dtime);
 	}
 }
 
