@@ -64,8 +64,8 @@ function move(axis, direction) {
 		}
 		else if (emptyNeib (pacman, axis, direction) && +
 			(pacman.axis == axis && pacman.direction == direction)) {
-			movment(pacman, 80);
-			setTimeout(() => {	pickCoin(pacman); }, 80);
+			movment(pacman, 100);
+			setTimeout(() => {	pickCoin(pacman); }, 100);
 			requestMoveID = setTimeout(m, 250)
 		}
 		else { clearTimeout(requestMoveID); }

@@ -98,7 +98,7 @@ function isPacmanCaught(b) {
 			b.change.style.left = b.pos[1] * scale + "px";
 			setTimeout(() => {cheetMovment(b, 1, -1);}, 250);
 			setTimeout(() => {cheetMovment(b, 1, 1);}, 500);
-			setTimeout(() => {cheetMovment(b, 1, 1);}, 7500);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 750);
 			setTimeout(() => {cheetMovment(b, 1, -1);}, 1000);
 			setTimeout(() => {cheetMovment(b, 1, -1);}, 1250);
 			setTimeout(() => {cheetMovment(b, 1, 1);}, 1500);
