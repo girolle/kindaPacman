@@ -24,7 +24,7 @@ function tryToMove(b, axis, direction) {
 	!(b.axis == axis && b.direction != direction)) {
 		b.axis = axis;
 		b.direction = direction;
-		movment(b, 260);
+		movment(b, 250);
 		return (1);
 	}
 	return (0);
@@ -96,16 +96,16 @@ function isPacmanCaught(b) {
 			b.direction = 1;
 			b.change.style.top = b.pos[0] * scale + "px";
 			b.change.style.left = b.pos[1] * scale + "px";
-			setTimeout(() => {cheetMovment(b, 1, -1);}, 260);
-			setTimeout(() => {cheetMovment(b, 1, 1);}, 520);
-			setTimeout(() => {cheetMovment(b, 1, 1);}, 780);
-			setTimeout(() => {cheetMovment(b, 1, -1);}, 1040);
-			setTimeout(() => {cheetMovment(b, 1, -1);}, 1300);
-			setTimeout(() => {cheetMovment(b, 1, 1);}, 1560);
-			setTimeout(() => {cheetMovment(b, 1, 1);}, 1820);
-			setTimeout(() => {cheetMovment(b, 1, -1);}, 2080);
-			setTimeout(() => {cheetMovment(b, 0, -1);}, 2340);
-			setTimeout(() => {	b.direction = -1;	}, 2600);
+			setTimeout(() => {cheetMovment(b, 1, -1);}, 250);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 500);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 7500);
+			setTimeout(() => {cheetMovment(b, 1, -1);}, 1000);
+			setTimeout(() => {cheetMovment(b, 1, -1);}, 1250);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 1500);
+			setTimeout(() => {cheetMovment(b, 1, 1);}, 1750);
+			setTimeout(() => {cheetMovment(b, 1, -1);}, 2000);
+			setTimeout(() => {cheetMovment(b, 0, -1);}, 2250);
+			setTimeout(() => {	b.direction = -1;	}, 2500);
 		}
 		else { 
 			pacmanCaught();
@@ -148,8 +148,8 @@ function startHunter() {
 						tryToMove(b, 1 - b.axis, -1);
 				}
 			}
-			requestID = setTimeout(hunt, 260); 
-		}, 260);
+			requestID = setTimeout(hunt, 250); 
+		}, 250);
 	};
 	setTimeout(() => {badMoves(bad[1]);}, 1500);
 	setTimeout(() => {badMoves(bad[0]);}, 3500);

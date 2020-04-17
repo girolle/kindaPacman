@@ -75,11 +75,11 @@ start_button.onclick = function() {
 function bads_start(){
 	if (game.started == 0) {
 		game.started = 1;
-		setTimeout(() => {cheetMovment(bad[1], 0, -1);}, 2100);
-		setTimeout(() => {cheetMovment(bad[0], 1, 1);}, 3300);
-		setTimeout(() => {cheetMovment(bad[0], 0, -1);}, 3560);
-		setTimeout(() => {cheetMovment(bad[2], 1, -1);}, 5300);
-		setTimeout(() => {cheetMovment(bad[2], 0, -1);}, 5560);
+		setTimeout(() => {cheetMovment(bad[1], 0, -1);}, 2000);
+		setTimeout(() => {cheetMovment(bad[0], 1, 1);}, 2750);
+		setTimeout(() => {cheetMovment(bad[0], 0, -1);}, 3000);
+		setTimeout(() => {cheetMovment(bad[2], 1, -1);}, 4750);
+		setTimeout(() => {cheetMovment(bad[2], 0, -1);}, 5000);
 		startHunter();
 	}
 }
