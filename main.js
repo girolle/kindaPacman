@@ -31,7 +31,7 @@ for (let i = 0; i < 3; i += 1) {
 let stub = {}
 stub.change = document.getElementById("stub");
 stub.text = document.getElementById("stub-text");
-stub.text.innerText = "Зарабатывайте деньги и не попадитесь налоговой службе";
+stub.text.innerText = "Зарабатывайте деньги и не попадитесь налоговой службе. Пользуйтесь стрелками для управления";
 
 let game = {};
 game.score = {};
@@ -145,5 +145,45 @@ function wallType(i, j) {
 	else ret += 0;
 
 	return(ret);
+}
+
+
+for (let i = 0; i <= mapSize[0]; i += 1) {
+
+	for (let j = 0; j <= mapSize[1]; j += 1) {
+		if (!(map[i][j])) {
+			let img = document.createElement('img');
+			img.className = 'border'
+			img.src = "images/" + wallType(i, j) + ".png";
+			img.style.height = scale + "px";
+			img.style.width = scale + "px";
+			img.style.top = i * scale + "px";
+			img.style.left = j * scale + "px";
+			pacman.change.parentNode.insertBefore(img, pacman.change);
+		}
+		if (map[i][j] == 2) {
+			let img = document.createElement('img');
+			img.className = 'coin'
+			img.style
+			img.id = i + '_' + j;
+			img.src = "images/coin.png";
+			img.style.height = scale + "px";
+			img.style.width = scale + "px";
+			img.style.top = (i * scale) + "px";
+			img.style.left = (j * scale) + "px";
+			pacman.change.parentNode.insertBefore(img, pacman.change);
+		}
+		if (map[i][j] == 3) {
+			let img = document.createElement('img');
+			img.className = 'border';
+			img.id = i + '_' + j;
+			img.src = "images/powerup.png";
+			img.style.height = scale + "px";
+			img.style.width = scale + "px";
+			img.style.top = i * scale + "px";
+			img.style.left = j * scale + "px";
+			pacman.change.parentNode.insertBefore(img, pacman.change);
+		}
+	}
 }
 

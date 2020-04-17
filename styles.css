@@ -111,6 +111,7 @@
 
   #arrows-box {
 	position: absolute;
+
   }
 
   .arrow {
@@ -120,7 +121,10 @@
 	  margin: 0 auto;
 	  border: 0;
 	  outline: none;
-	  background:transparent
+	  background:transparent;
+	  background-repeat: no-repeat ;
+	  background-position: 50%;
+	  background-size: contain;
 	}
   
 
