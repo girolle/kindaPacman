@@ -108,10 +108,10 @@ function isPacmanCaught(b) {
 			setTimeout(() => {	b.direction = -1;	}, 2500);
 		}
 		else { 
+			game.stop = 1; 
 			pacmanCaught();
 			stub.text.innerText = "ВЫ ПРОИГРАЛИ";
 			stub.change.style.opacity = 1;
-			game.stop = 1; 
 		}
 		return (1);
 	}

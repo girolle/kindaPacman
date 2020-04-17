@@ -108,6 +108,7 @@ function movment(target, dtime) {
 }
 
 function pacmanCaught() {
+	pacman.remember = [2, 2];
 	pacman.axis = 2;
 	pacman.direction = 2;
 }
