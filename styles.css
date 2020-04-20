@@ -109,13 +109,26 @@
 	position: absolute;
   }
 
+  #mobile {
+	  position: absolute;
+  }
   #arrows-box {
 	position: absolute;
-
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	overflow: hidden;
+	background-image: url("images/arrows.png");
+	background-repeat: no-repeat ;
+	background-position: 50%;
+	background-size: contain;
   }
 
   .arrow {
 	  transform: translate(-50%, -50%);
+	  transform: rotate(45deg); 
+	  width: 50%;
+	  height: 50%;
 
 	  position: absolute;
 	  margin: 0 auto;

@@ -108,8 +108,6 @@ document.addEventListener('keydown', function (event) {
 	if (game.entered && !game.stop) {
 		if ((event.code == 'ArrowLeft') || (event.code == 'ArrowRight')) {
 			bads_start();
-game.started = 1;
-
 		}
 
 		if (event.code == 'ArrowLeft')
@@ -154,7 +152,7 @@ for (let i = 0; i <= mapSize[0]; i += 1) {
 		if (!(map[i][j])) {
 			let img = document.createElement('img');
 			img.className = 'border'
-			img.src = "images/" + wallType(i, j) + ".png";
+			img.src = "images/walls2/" + wallType(i, j) + ".png";
 			img.style.height = scale + "px";
 			img.style.width = scale + "px";
 			img.style.top = i * scale + "px";
@@ -187,3 +185,27 @@ for (let i = 0; i <= mapSize[0]; i += 1) {
 	}
 }
 
+(function () {
+	var lastTime = 0;
+	var vendors = ['ms', 'moz', 'webkit', 'o'];
+	for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+		window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+		window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
+			|| window[vendors[x] + 'CancelRequestAnimationFrame'];
+	}
+
+	if (!window.requestAnimationFrame)
+		window.requestAnimationFrame = function (callback, element) {
+			var currTime = new Date().getTime();
+			var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+			var id = window.setTimeout(function () { callback(currTime + timeToCall); },
+				timeToCall);
+			lastTime = currTime + timeToCall;
+			return id;
+		};
+
+	if (!window.cancelAnimationFrame)
+		window.cancelAnimationFrame = function (id) {
+			clearTimeout(id);
+		};
+}());
