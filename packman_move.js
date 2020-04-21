@@ -15,6 +15,7 @@ function pickCoin(target) {
 	if (map[target.pos[0]][target.pos[1]] == 3) {
 		map[target.pos[0]][target.pos[1]] = 1;
 		game.reverse = 1;
+		document.getElementById("message").style.opacity = "1";
 		let coin = document.getElementById(curr_id);
 		coin.remove();
 		for (let i = 0; i < 3; i += 1) {
@@ -23,7 +24,10 @@ function pickCoin(target) {
 			requestPowerupID1[i] = setTimeout (() => { bad[i].change.src = "images/bad.png";}, 5000);
 		}
 		clearTimeout(requestPowerupID2);
-		requestPowerupID2 = setTimeout (() => { game.reverse = 0;}, 5000);
+		requestPowerupID2 = setTimeout (() => { 
+			game.reverse = 0;
+			document.getElementById("message").style.opacity = "0";
+		}, 5000);
 	}
 }
 

@@ -110,7 +110,7 @@ function isPacmanCaught(b) {
 		else { 
 			game.stop = 1; 
 			pacmanCaught();
-			stub.text.innerText = "ВЫ ПРОИГРАЛИ";
+			stub.text.innerHTML = "Вам не удалось сдать отчетность. <p>Хорошо, что с этим может помочь</p> <a href='https://www.vtb.ru/malyj-biznes/'> онлайн-бухгалтерия ВТБ <a>" ;
 			stub.change.style.opacity = 1;
 		}
 		return (1);
@@ -121,7 +121,7 @@ function isPacmanCaught(b) {
 function isPacmanWin() {
 	if (game.score.number == 124) { 
 		game.stop = 1;
-		stub.text.innerText = "ВЫ ВЫИГРАЛИ";
+		stub.text.innerHTML = "Вы выиграли! <p></p> Больше бегать за бухгалтером не прийдётся.<p></p> <a href='https://www.vtb.ru/malyj-biznes/'> Онлайн-бухгалтерия ВТБ <a>";
 		stub.change.style.opacity = 1;
 		return (1); 
 	}

@@ -1,5 +1,5 @@
-windowHeight = document.documentElement.clientHeight;
-windowWidth = document.documentElement.clientWidth;
+windowHeight = 0.99 * document.documentElement.clientHeight;
+windowWidth = 0.99 * document.documentElement.clientWidth;
 let scale
 if (windowHeight > 1.16 * windowWidth) {
 	boxSize = windowWidth;
@@ -22,6 +22,17 @@ document.getElementById("score-box").style.top = scale + "px";
 document.getElementById("score-box").style.left = scale + "px"; 
 document.getElementById("score-box").style.height = scale + "px"; 
 document.getElementById("score-box").style.width = 3 * scale + "px"; 
+
+document.getElementById("message-box").style.top = 0.5 * scale + "px"; 
+document.getElementById("message-box").style.left = 5 * scale + "px"; 
+document.getElementById("message-box").style.height = 1.5 * scale + "px"; 
+document.getElementById("message-box").style.width = 8 * scale + "px"; 
+
+document.getElementById("message").style.fontSize = scale / 2 + "px";
+document.getElementById("message").innerHTML = "Бухгалтера нет на месте. <p></p> Но вы в безопасности 5 секунд"
+
+
+
 document.getElementById("stub").style.width = 10 * scale + "px";
 document.getElementById("stub").style.height = 10 * scale + "px";
 document.getElementById("stub").style.padding = scale + "px";
