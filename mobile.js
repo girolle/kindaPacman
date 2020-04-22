@@ -1,24 +1,12 @@
-function mobile() {
-
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 
-	let windowHeight = 0.99 * document.documentElement.clientHeight;
-	let windowWidth = 0.99 * document.documentElement.clientWidth;
-	let boxS;
-
-	if (windowHeight > 1.16 * windowWidth) {
-		boxS = windowWidth;
-	}
-	else {
-		boxS = windowHeight;
-	}
 	var arrows = {};
 	arrows.cont = document.getElementById("mobile");
-	arrows.cont.style.height = (windowHeight - boxS - 2 * scale) + "px";
+	arrows.cont.style.height = (windowHeight - boxSize - 2 * scale) + "px";
 	arrows.cont.style.width = windowWidth + "px";
-	arrows.cont.style.top = boxS + 2 * scale + "px";
+	arrows.cont.style.top = boxSize + 2 * scale + "px";
 
-	var boxSize = Math.min((windowHeight - boxS - 2 * scale), windowWidth);
+	var boxSize = Math.min((windowHeight - boxSize - 2 * scale), windowWidth);
 	arrows.box = document.getElementById("arrows-box");
 	arrows.box.style.height = boxSize + "px";
 	arrows.box.style.width = arrows.box.style.height;
@@ -86,5 +74,4 @@ function vibrate(val){
 	if("oVibrate" in navigator)  return navigator.oVibrate(val);
 	if("mozVibrate" in navigator)  return navigator.mozVibrate(val);
 	if("webkitVibrate" in navigator)  return navigator.webkitVibrate(val);
-}
 }
