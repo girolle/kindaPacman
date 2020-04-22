@@ -12,7 +12,7 @@ function goFullscreen() {
 	mf = document.getElementById("head");
 	mf.webkitRequestFullscreen();
 	mf.style.display="";
-	mobile();
+	setTimeout(()=>{ mobile();}, 200);
 }
 function fullscreenChanged() {
 	if (document.webkitFullscreenElement == null) {
