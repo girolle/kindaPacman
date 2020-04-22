@@ -1,3 +1,6 @@
+var scale;
+scaleInit();
+
 let pacman = {};
 pacman.change = document.getElementById("pacman");
 pacman.change.style.width = scale + "px";
@@ -11,7 +14,6 @@ pacman.direction = 2;
 pacman.inProgress = 0;
 pacman.remember = [2, 2];
 pacman.dt = 0;
-
 
 let bad = [{}, {}, {}];
 for (let i = 0; i < 3; i += 1) {
