@@ -12,7 +12,7 @@ function goFullscreen() {
 	mf = document.getElementById("head");
 	mf.webkitRequestFullscreen();
 	mf.style.display="";
-	setTimeout(()=>{ mobile();}, 1000);
+	setTimeout(()=>{ mobile();}, 500);
 }
 function fullscreenChanged() {
 	if (document.webkitFullscreenElement == null) {
@@ -20,6 +20,8 @@ function fullscreenChanged() {
 		mf.style.display="none";
 	}
 }
-document.onwebkitfullscreenchange = fullscreenChanged;
-document.documentElement.onclick = goFullscreen;
-document.onkeydown = goFullscreen;
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+	document.onwebkitfullscreenchange = fullscreenChanged;
+	document.documentElement.onclick = goFullscreen;
+	document.onkeydown = goFullscreen;
+}
