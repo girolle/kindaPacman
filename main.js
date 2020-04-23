@@ -106,20 +106,20 @@ function tryToTurn (axis, direction) {
 
 document.addEventListener('keydown', function (event) {
 	if (game.entered && !game.stop) {
-		if ((event.code == 'ArrowLeft') || (event.code == 'ArrowRight')) {
+		if ((event.key == 'ArrowLeft') || (event.key == 'ArrowRight')) {
 			bads_start();
 		}
 
-		if (event.code == 'ArrowLeft')
+		if (event.key == 'ArrowLeft')
 			tryToTurn(1, -1);
 
-		if (event.code == 'ArrowRight')
+		if (event.key == 'ArrowRight')
 			tryToTurn(1, 1);
 
-		if (event.code == 'ArrowUp')
+		if (event.key == 'ArrowUp')
 			tryToTurn(0, -1);
 
-		if (event.code == 'ArrowDown')
+		if (event.key == 'ArrowDown')
 			tryToTurn(0, 1);
 	}
 })
