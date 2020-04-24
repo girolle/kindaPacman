@@ -83,6 +83,26 @@ function cheetMovment(target, axis, direction)
 	});
 }
 
+function emailForm(){
+	var form = document.createElement('form');
+	form.action = 'send.php';
+	form.method='post';
+	stub.change.append(form);
+	var input = document.createElement('input');
+	input.id = "email-text";
+	input.type = 'text';
+	input.name = 'email';
+	input.placeholder="Укажите ваш email";
+	input.style.fontSize = document.getElementById("message").style.fontSize;
+	form.append(input);
+	var button = document.createElement('input');
+	button.type = "submit";
+	button.id="email-button";
+	button.value = " ";
+	form.append(button);
+
+}
+
 function isPacmanCaught(b) {
 	if ((pacman.pos[0] == b.pos[0] && pacman.pos[1] == b.pos[1]) || +
 	((Math.abs(pacman.pos[0] - b.pos[0]) < 2) && + 
@@ -110,7 +130,8 @@ function isPacmanCaught(b) {
 		else { 
 			game.stop = 1; 
 			pacmanCaught();
-			stub.text.innerHTML = "Вам не удалось сдать отчетность. <p>Хорошо, что с этим может помочь</p> <a href='https://www.vtb.ru/malyj-biznes/'> онлайн-бухгалтерия ВТБ <a>" ;
+			stub.text.innerHTML = "Ваc поглотили конкуренты. Очень жаль." ;
+			emailForm();
 			stub.change.style.opacity = 1;
 		}
 		return (1);
@@ -121,7 +142,8 @@ function isPacmanCaught(b) {
 function isPacmanWin() {
 	if (game.score.number == 124) { 
 		game.stop = 1;
-		stub.text.innerHTML = "Вы выиграли! <p></p> Больше бегать за бухгалтером не прийдётся.<p></p> <a href='https://www.vtb.ru/malyj-biznes/'> Онлайн-бухгалтерия ВТБ <a>";
+		stub.text.innerHTML = "Вы выиграли! <p></p> Больше бегать за инвесторами не прийдётся.<p></p>";
+		emailForm();
 		stub.change.style.opacity = 1;
 		return (1); 
 	}

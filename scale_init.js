@@ -29,7 +29,7 @@ document.getElementById("message-box").style.height = 1.5 * scale + "px";
 document.getElementById("message-box").style.width = 8 * scale + "px"; 
 
 document.getElementById("message").style.fontSize = scale / 2 + "px";
-document.getElementById("message").innerHTML = "Бухгалтера нет на месте. <p></p> Но вы в безопасности 5 секунд"
+document.getElementById("message").innerHTML = "Инвестор не захотел вложиться. <p></p> Но вы в безопасности 5 секунд"
 
 
 

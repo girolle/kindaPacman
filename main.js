@@ -31,7 +31,7 @@ for (let i = 0; i < 3; i += 1) {
 let stub = {}
 stub.change = document.getElementById("stub");
 stub.text = document.getElementById("stub-text");
-stub.text.innerText = "Зарабатывайте деньги и не попадитесь налоговой службе. Пользуйтесь стрелками для управления";
+stub.text.innerText = "Зарабатывайте деньги и избегайте поглащения конкурентами. Пользуйтесь стрелками для управления";
 
 let game = {};
 game.score = {};
@@ -153,8 +153,8 @@ for (let i = 0; i <= mapSize[0]; i += 1) {
 			let img = document.createElement('img');
 			img.className = 'border'
 			img.src = "images/walls2/" + wallType(i, j) + ".png";
-			img.style.height = scale + "px";
-			img.style.width = scale + "px";
+			img.style.height = (scale + 1) + "px";
+			img.style.width = (scale + 1) + "px";
 			img.style.top = i * scale + "px";
 			img.style.left = j * scale + "px";
 			pacman.change.parentNode.insertBefore(img, pacman.change);
